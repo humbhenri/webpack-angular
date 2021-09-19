@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack ./webpack_entry.js --mode=development"
+    "build": "webpack --mode=development"
   },
   "author": "",
   "license": "ISC",
@@ -13,7 +13,13 @@
     "angular": "^1.5.8"
   },
   "devDependencies": {
+    "angularjs-template-loader": "^0.1.2",
     "css-loader": "^6.3.0",
+    "file-loader": "^6.2.0",
+    "html-loader": "^2.1.2",
+    "html-webpack-plugin": "^5.3.2",
+    "ngtemplate-loader": "^2.1.0",
+    "raw-loader": "^4.0.2",
     "style-loader": "^3.2.1",
     "webpack": "^5.53.0",
     "webpack-cli": "^4.8.0"

@@ -8,5 +8,5 @@ app.component("add", {
 
     console.log("blah");
   },
-  templateUrl: "./add.html",
+  templateUrl: require("./add.html"),
 });
