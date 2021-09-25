@@ -21,27 +21,33 @@ module.exports = {
               presets: ["@babel/preset-env"],
             },
           },
-          // {
-          //   loader: "angularjs-template-loader"
-          // }
+          {
+            loader: "angularjs-template-loader"
+          }
         ],
       },
       {
         test: /\.html$/,
         exclude: [/index\.html$/],
         use: [
+          // {
+          //   loader: "ngtemplate-loader",
+          //   options: {
+          //     // relativeTo: path.resolve(__dirname, "app")
+          //   },
+          // },
+          // {
+          //   loader: "html-loader",
+          //   options: {
+          //      minimize: true
+          //   }
+          // },
           {
-            loader: "ngtemplate-loader",
+            loader: "raw-loader",
             options: {
-              // relativeTo: path.resolve(__dirname, "app")
-            },
-          },
-          {
-            loader: "html-loader",
-            options: {
-               minimize: true
+              esModule: false
             }
-          },
+          }
         ],
       },
     ],
