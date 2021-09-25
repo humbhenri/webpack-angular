@@ -1,9 +1,9 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const path = require('path');
+const path = require("path");
 
 module.exports = {
   entry: {
-    index: './webpack_entry.js'
+    index: "./webpack_entry.js",
   },
   module: {
     rules: [
@@ -11,39 +11,44 @@ module.exports = {
         test: /\.css$/,
         use: ["style-loader", "css-loader"],
       },
-      // {
-      //   test: /\.js$/,
-      //   use: [
-      //     {
-      //       loader: 'angularjs-template-loader',
-      //       options: {
-      //         // relativeTo: path.resolve(__dirname, ''),
-      //       }
-      //     }
-      //   ]        
-      // },
       {
-        test: /\.html$/,
+        test: /\.js$/,
+        exclude: /(node_modules|bower_components)/,
         use: [
           {
-            loader: 'ngtemplate-loader',
+            loader: "babel-loader",
+            options: {
+              presets: ["@babel/preset-env"],
+            },
+          },
+          // {
+          //   loader: "angularjs-template-loader"
+          // }
+        ],
+      },
+      {
+        test: /\.html$/,
+        exclude: [/index\.html$/],
+        use: [
+          {
+            loader: "ngtemplate-loader",
             options: {
               // relativeTo: path.resolve(__dirname, "app")
-            }
+            },
           },
           {
-            loader: 'html-loader'
-          }
+            loader: "html-loader",
+            options: {
+               minimize: true
+            }
+          },
         ],
-        exclude: [
-          /index\.html$/
-        ]
-      }
+      },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: 'index.html'
+      template: "index.html",
     }),
-  ]
+  ],
 };

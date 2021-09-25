@@ -1,4 +1,4 @@
-# Webpack example
+# Angularjs Webpack example
 
 `npm run build` to build the bundle.
 
