@@ -57,4 +57,9 @@ module.exports = {
       template: "index.html",
     }),
   ],
+  output: {
+    filename: 'index.[contenthash].js',
+    path: path.resolve(__dirname, 'dist'),
+    clean: true
+  }
 };
